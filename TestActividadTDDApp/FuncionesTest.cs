@@ -28,5 +28,35 @@ namespace TestActividadTDDApp
         {
             Assert.AreEqual(720L, Funciones.CalcularFactorial(6));
         }
+
+        [TestMethod]
+        public void EsContrasenyaValida_Null_DevuelveFalse()
+        {
+            Assert.IsFalse(Funciones.EsContrasenyaValida(null));
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_Vacia_DevuelveFalse()
+        {
+            Assert.IsFalse(Funciones.EsContrasenyaValida(""));
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_MenosDeOchoCaracteres_DevuelveFalse()
+        {
+            Assert.IsFalse(Funciones.EsContrasenyaValida("abc#123"));
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_SinAlmohadilla_DevuelveFalse()
+        {
+            Assert.IsFalse(Funciones.EsContrasenyaValida("abcdefgh"));
+        }
+
+        [TestMethod]
+        public void EsContrasenyaValida_CumpleRequisitos_DevuelveTrue()
+        {
+            Assert.IsTrue(Funciones.EsContrasenyaValida("abcde#123"));
+        }
     }
 }
